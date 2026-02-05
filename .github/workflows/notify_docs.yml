@@ -1,0 +1,18 @@
+name: Notify Documentation Repo
+
+on:
+  push:
+    branches:
+      - main  # Solo cuando los cambios llegan a la rama principal
+
+jobs:
+  dispatch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Repository Dispatch event
+        run: |
+          curl -X POST \
+          -H "Accept: application/vnd.github.v3+json" \
+          -H "Authorization: bearer ${{ secrets.PAT_FOR_DOCS }}" \
+          https://api.github.com/repos/garciav/petclinic-documentation/dispatches \
+          -d '{"event_type": "code_updated", "client_payload": { "ref": "${{ github.ref }}", "sha": "${{ github.sha }}" }}'
