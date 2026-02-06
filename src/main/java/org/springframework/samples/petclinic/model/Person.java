@@ -37,6 +37,8 @@ public class Person extends BaseEntity {
 
 	private String customerDocumentId;
 
+	private String gender;
+	
 	public String getCustomerDocumentId() {
 		return this.customerDocumentId;
 	}
