@@ -35,6 +35,17 @@ public class Person extends BaseEntity {
 	@NotEmpty
 	private String lastName;
 
+	private String customerDocumentId;
+
+	public String getCustomerDocumentId() {
+		return this.customerDocumentId;
+	}
+
+	public void setCustomerDocumentId(String customerDocumentId) {
+		this.customerDocumentId = customerDocumentId;
+	}
+
+	
 	public String getFirstName() {
 		return this.firstName;
 	}
